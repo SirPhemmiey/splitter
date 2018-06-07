@@ -11,7 +11,8 @@ $db = "tv";
 $user = "root";
 
 $con = mysqli_connect($host, $user, '', $db);
-$sql = "SELECT ";
+$sql = "SELECT SUBSTRING_INDEX(SUBSTRING_INDEX(campaign, '...', 1), '...', -1) as artist,
+SUBSTRING_INDEX(SUBSTRING_INDEX(campaign, '...', 2), '...', -1) as song FROM mtv limit 3";
 $query = mysqli_query($con, $sql);
 ?>
 <!DOCTYPE html>
@@ -23,6 +24,10 @@ $query = mysqli_query($con, $sql);
     <title>Document</title>
 </head>
 <body>
-    
+    <?php
+    while ($result = mysql_fetch_assoc($query)) {
+        print_r($result);
+    }
+    ?>
 </body>
 </html>
