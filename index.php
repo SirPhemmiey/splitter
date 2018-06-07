@@ -1,4 +1,26 @@
 <?php
 //LOAD DATA LOCAL INFILE "C:/Users/PC/Downloads/MTV Base Jan-Dec-1.csv" into table mtv FIELDS TERMINATED by ',' enclosed by '"' LINES TERMINATED by '\n' 
 
+header("Content-Type: application/xls");    
+header("Content-Disposition: attachment; filename=mtv_base.xls");  
+header("Pragma: no-cache"); 
+header("Expires: 0");
 
+$host = "localhost";
+$db = "tv";
+$user = "root";
+
+mysqli_connect($host, $user, '', $db);
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
