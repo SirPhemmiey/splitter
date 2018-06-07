@@ -3,10 +3,10 @@
 
 //update mtv SET campaign = REPLACE(campaign, '-', '...')
 
-// header("Content-Type: application/xls");    
-// header("Content-Disposition: attachment; filename=mtv_base.xls");  
-// header("Pragma: no-cache"); 
-// header("Expires: 0");
+header("Content-Type: application/xls");    
+header("Content-Disposition: attachment; filename=mtv_base.xls");  
+header("Pragma: no-cache"); 
+header("Expires: 0");
 
 $host = "localhost";
 $db = "tv";
@@ -14,7 +14,7 @@ $user = "root";
 
 $con = mysqli_connect($host, $user, '', $db);
 $sql = "SELECT datte, time_flighted, station, campaign, duration, SUBSTRING_INDEX(SUBSTRING_INDEX(campaign, '...', 1), '...', -1) as artist,
-SUBSTRING_INDEX(SUBSTRING_INDEX(campaign, '...', 2), '...', -1) as song FROM mtv limit 3";
+SUBSTRING_INDEX(SUBSTRING_INDEX(campaign, '...', 2), '...', -1) as song FROM mtv";
 $query = mysqli_query($con, $sql);
 ?>
 <!DOCTYPE html>
@@ -25,19 +25,28 @@ $query = mysqli_query($con, $sql);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<body>
+<body style="border: 1px solid #ccc">
        <table>
        <thead>
        <th>Date</th>
-       
+       <th>Time Flighted</th>
+       <th>Station</th>
+       <th>Artist</th>
+       <th>Song</th>
+       <th>Duration</th>
        </thead>
        <tbody>
        <?php
     while ($result = mysqli_fetch_assoc($query)) {?>
        <tr>
        <td><?php echo $result['datte']?></td>
+       <td><?php echo $result['time_flighted']?></td>
+       <td><?php echo $result['station']?></td>
+       <td><?php echo $result['artist']?></td>
+       <td><?php echo $result['song']?></td>
+       <td><?php echo $result['duration']?></td>
        </tr>
-       <?php }?>
+        <?php }?>
        </tbody>
        </table>
    
