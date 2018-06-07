@@ -26,10 +26,20 @@ $query = mysqli_query($con, $sql);
     <title>Document</title>
 </head>
 <body>
-    <?php
-    while ($result = mysqli_fetch_assoc($query)) {
-        print_r($result);
-    }
-    ?>
+       <table>
+       <thead>
+       <th>Date</th>
+       
+       </thead>
+       <tbody>
+       <?php
+    while ($result = mysqli_fetch_assoc($query)) {?>
+       <tr>
+       <td><?php echo $result['datte']?></td>
+       </tr>
+       <?php }?>
+       </tbody>
+       </table>
+   
 </body>
 </html>
