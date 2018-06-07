@@ -10,7 +10,9 @@ $host = "localhost";
 $db = "tv";
 $user = "root";
 
-mysqli_connect($host, $user, '', $db);
+$con = mysqli_connect($host, $user, '', $db);
+$sql = "SELECT ";
+$query = mysqli_query($con, $sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
