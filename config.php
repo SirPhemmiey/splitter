@@ -1,7 +1,7 @@
 <?php
 
 $host = "localhost";
-$db = "tv";
+$db = "soundcity";
 $user = "root";
 
 $con = mysqli_connect($host, $user, '', $db);

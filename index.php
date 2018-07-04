@@ -13,8 +13,8 @@ header("Expires: 0");
 // $user = "root";
 
 // $con = mysqli_connect($host, $user, '', $db);
-$sql = "SELECT datte, time_flighted, station, campaign, duration, SUBSTRING_INDEX(SUBSTRING_INDEX(campaign, '...', 1), '...', -1) as artist,
-SUBSTRING_INDEX(SUBSTRING_INDEX(campaign, '...', 2), '...', -1) as song FROM mtv";
+$sql = "SELECT DetectedTime, Station, CampaignTheme, SourceBeginTime, SourceEndTime, DurationPlayed, TargetMatchFullClip, TargetMatchStart, TargetMatchEnd, TargetMatchDuration, SUBSTRING_INDEX(SUBSTRING_INDEX(CampaignTheme, '...', 1), '...', -1) as artist,
+SUBSTRING_INDEX(SUBSTRING_INDEX(CampaignTheme, '...', 2), '...', -1) as song FROM sound_beat";
 $query = mysqli_query($con, $sql);
 ?>
 <!DOCTYPE html>
