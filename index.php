@@ -4,7 +4,7 @@
 //update mtv SET campaign = REPLACE(campaign, '-', '...')
 include 'config.php';
 header("Content-Type: application/xls");    
-header("Content-Disposition: attachment; filename=mtv_base.xls");  
+header("Content-Disposition: attachment; filename=sound_beat.xls");  
 header("Pragma: no-cache"); 
 header("Expires: 0");
 
@@ -13,8 +13,8 @@ header("Expires: 0");
 // $user = "root";
 
 // $con = mysqli_connect($host, $user, '', $db);
-$sql = "SELECT DetectedTime, Station, CampaignTheme, SourceBeginTime, SourceEndTime, DurationPlayed, TargetMatchFullClip, TargetMatchStart, TargetMatchEnd, TargetMatchDuration, SUBSTRING_INDEX(SUBSTRING_INDEX(CampaignTheme, '...', 1), '...', -1) as artist,
-SUBSTRING_INDEX(SUBSTRING_INDEX(CampaignTheme, '...', 2), '...', -1) as song FROM sound_beat";
+$sql = "SELECT DetectedTime, Station, CampaignTheme, SourceBeginTime, SourceEndTime, DurationPlayed, TargetMatchFullClip, TargetMatchStart, TargetMatchEnd, TargetMatchDuration, SUBSTRING_INDEX(SUBSTRING_INDEX(CampaignTheme, '...', 1), '...', -1) as Artist,
+SUBSTRING_INDEX(SUBSTRING_INDEX(CampaignTheme, '...', 2), '...', -1) as Song FROM sound_beat";
 $query = mysqli_query($con, $sql);
 ?>
 <!DOCTYPE html>
@@ -28,23 +28,31 @@ $query = mysqli_query($con, $sql);
 <body style="border: 1px solid #ccc">
        <table>
        <thead>
-       <th>Date</th>
-       <th>Time Flighted</th>
+       <th>DetectedTime</th>
        <th>Station</th>
        <th>Artist</th>
        <th>Song</th>
-       <th>Duration</th>
+       <th>SourceBeginTime</th>
+       <th>DurationPlayed</th>
+       <th>TargetMatchFullClip</th>
+       <th>TargetMatchStart</th>
+       <th>TargetMatchEnd</th>
+       <th>TargetMatchDuration</th>
        </thead>
        <tbody>
        <?php
     while ($result = mysqli_fetch_assoc($query)) {?>
        <tr>
-       <td><?php echo $result['datte']?></td>
-       <td><?php echo $result['time_flighted']?></td>
-       <td><?php echo $result['station']?></td>
-       <td><?php echo $result['artist']?></td>
-       <td><?php echo $result['song']?></td>
-       <td><?php echo $result['duration']?></td>
+       <td><?php echo $result['DetectedTime']?></td>
+       <td><?php echo $result['Station']?></td>
+       <td><?php echo $result['Artist']?></td>
+       <td><?php echo $result['Song']?></td>
+       <td><?php echo $result['SourceBeginTime']?></td>
+       <td><?php echo $result['DurationPlayed']?></td>
+       <td><?php echo $result['TargetMatchFullClip']?></td>
+       <td><?php echo $result['TargetMatchStart']?></td>
+       <td><?php echo $result['TargetMatchEnd']?></td>
+       <td><?php echo $result['TargetMatchDuration']?></td>
        </tr>
         <?php }?>
        </tbody>
