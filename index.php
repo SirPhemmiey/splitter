@@ -1,11 +1,12 @@
 <?php
-//LOAD DATA LOCAL INFILE "C:/Users/PC/Downloads/MTV Base Jan-Dec-1.csv" into table mtv FIELDS TERMINATED by ',' enclosed by '"' LINES TERMINATED by '\n' 
+//LOAD DATA LOCAL INFILE "C:/Users/PC/Downloads/MTV Base Jan-Dec-1.csv" into table mtv FIELDS TERMINATED by ',' enclosed by '"' LINES TERMINATED by '\n'
 
 //update mtv SET campaign = REPLACE(campaign, '-', '...')
+//characters are -, _
 include 'config.php';
-header("Content-Type: application/xls");    
-header("Content-Disposition: attachment; filename=sound_beat.xls");  
-header("Pragma: no-cache"); 
+header("Content-Type: application/xls");
+header("Content-Disposition: attachment; filename=hiptracemtvsound.xls");
+header("Pragma: no-cache");
 header("Expires: 0");
 
 // $host = "localhost";
@@ -14,7 +15,8 @@ header("Expires: 0");
 
 // $con = mysqli_connect($host, $user, '', $db);
 $sql = "SELECT DetectedTime, Station, CampaignTheme, SourceBeginTime, SourceEndTime, DurationPlayed, TargetMatchFullClip, TargetMatchStart, TargetMatchEnd, TargetMatchDuration, SUBSTRING_INDEX(SUBSTRING_INDEX(CampaignTheme, '...', 1), '...', -1) as Artist,
-SUBSTRING_INDEX(SUBSTRING_INDEX(CampaignTheme, '...', 2), '...', -1) as Song FROM sound_beat";
+SUBSTRING_INDEX(SUBSTRING_INDEX(CampaignTheme, '...', 2), '...', -1) as Song FROM  hiptracemtvsound";
+
 $query = mysqli_query($con, $sql);
 ?>
 <!DOCTYPE html>
@@ -57,6 +59,6 @@ $query = mysqli_query($con, $sql);
         <?php }?>
        </tbody>
        </table>
-   
+
 </body>
 </html>
