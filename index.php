@@ -1,12 +1,9 @@
 <?php
-//LOAD DATA LOCAL INFILE "C:/Users/PC/Downloads/MTV Base Jan-Dec-1.csv" into table mtv FIELDS TERMINATED by ',' enclosed by '"' LINES TERMINATED by '\n'
-
-// LOAD DATA LOCAL INFILE "C:/Users/PC/Downloads/Beat -Brila-Cool-classic-Eko-Insp FM.csv" into table brilla_fm2018s FIELDS TERMINATED by ',' enclosed by '"' LINES TERMINATED by '\n'
-
 //update hiptracemtvsound SET CampaignTheme = REPLACE(CampaignTheme, '-', '...')
 
 // LOAD DATA LOCAL INFILE "C:/Users/PC/Downloads/adjusted contn2.csv" into table hip_tv2018s FIELDS TERMINATED by ',' enclosed by '"' LINES TERMINATED by '\n'
 
+//LOAD DATA INFILE "C:/Users/Admin/Downloads/2018 Logs/2018 Logs/Abuja 2018 July 1st - Dec 31st/Aso FM Abuja July - Dec 31st 2018.csv" into table aso_fm_abuja FIELDS TERMINATED by ',' enclosed by '"' LINES TERMINATED by '\n'  IGNORE 1 LINES
 //characters are -, _
 include 'config.php';
 header("Content-Type: application/xls");
